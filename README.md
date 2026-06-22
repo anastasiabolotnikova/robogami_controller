@@ -1,4 +1,4 @@
-Single Robogami module mc_rtc FSM controller
+Robogami module mc_rtc FSM controller
 ================
 
 ## Build
@@ -24,4 +24,18 @@ mc_rtc_ticker
 ```
 
 ![robogami](doc/robogami.gif)
+
+## Reference
+
+`RobogamiController` is a basis for a Robogami module control presented in the following manuscript:
+
+```
+@article{mete2026reconfiguration,
+  title={Reconfiguration of supernumerary robotic limbs for human augmentation},
+  author={Mustafa Mete and Anastasia Bolotnikova and Alexander Schuessler and Jamie Paik},
+  journal={arXiv preprint arXiv:2603.29808},
+  year={2026}
+}
+
+```
 
