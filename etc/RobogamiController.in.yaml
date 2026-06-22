@@ -5,7 +5,7 @@ Managed: false
 StepByStep: true
 # Change idle behaviour, if true the state is kept until transition,
 # otherwise the FSM holds the last state until transition
-IdleKeepState: false
+IdleKeepState: true
 # Where to look for state libraries
 StatesLibraries:
 - "@MC_STATES_DEFAULT_RUNTIME_INSTALL_PREFIX@"
@@ -16,22 +16,29 @@ StatesFiles:
 - "@MC_STATES_RUNTIME_INSTALL_PREFIX@/data"
 # If true, state factory will be more verbose
 VerboseStateFactory: false
+
 # Additional robots to load
 robots:
   ground:
     module: env/ground
+
 # General constraints, always on
 constraints:
 - type: contact
 - type: kinematics
   damper: [0.1, 0.01, 0.5]
 - type: compoundJoint
+
 # Collision constraint
 collisions:
 - type: collision
   useMinimal: true
+
 # Initial set of contacts
 contacts:
+- r2: ground
+  r1Surface: Base
+  r2Surface: AllGround
 - r2: robogami
   r1Surface: Leg2
   r2Surface: TopLeg2
@@ -44,10 +51,43 @@ robogami:
   posture:
     stiffness: 1
     weight: 10
+
 # Implement some additional text states
-states: {}
+states:
+
+  DefaultPosture:
+    base: Posture
+    robot: robogami
+    postureTask:
+      target:
+        l1: [0.08726646] # 5 deg
+        l2: [0.08726646]
+        l3: [0.08726646]
+
+  StretchOut:
+    base: Posture
+    robot: robogami
+    postureTask:
+      target:
+        l1: [1.4]
+        l2: [1.4]
+        l3: [1.4]
+
+  Compress:
+    base: Posture
+    robot: robogami
+    postureTask:
+      target:
+        l1: [0.1]
+        l2: [0.1]
+        l3: [0.1]
+
 # Transitions map
 transitions:
-- [RobogamiController_Initial, OK, RobogamiController_Initial, Strict]
+- [RobogamiController_Initial, OK, DefaultPosture, Strict]
+- [DefaultPosture, OK, StretchOut, Strict]
+- [StretchOut, OK, Compress, Strict]
+- [Compress, OK, DefaultPosture, Strict]
+
 # Initial state
 init: RobogamiController_Initial
