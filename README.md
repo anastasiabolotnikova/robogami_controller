@@ -23,3 +23,5 @@ ros2 launch mc_rtc_ticker display.launch
 mc_rtc_ticker
 ```
 
+![robogami](doc/robogami.gif)
+
