@@ -31,13 +31,13 @@ collisions:
 - type: collision
   useMinimal: true
 # Initial set of contacts
-#contacts:
-#- r2: ground
-#  r1Surface: LeftFoot
-#  r2Surface: AllGround
-#- r2: ground
-#  r1Surface: RightFoot
-#  r2Surface: AllGround
+contacts:
+- r2: robogami
+  r1Surface: Leg2
+  r2Surface: TopLeg2
+- r2: robogami
+  r1Surface: Leg3
+  r2Surface: TopLeg3
 
 # Some options for a specific robot
 robogami:
