@@ -1,4 +1,11 @@
 Robogami module mc_rtc FSM controller
+
+## Clone
+
+```
+git clone https://github.com/anastasiabolotnikova/robogami_controller
+```
+
 ================
 
 ## Build
