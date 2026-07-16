@@ -18,8 +18,14 @@ Enabled: RobogamiController
 ```
 
 ## Run
+
+Terminal 1
 ```
 ros2 launch mc_rtc_ticker display.launch
+```
+
+Terminal 2
+```
 mc_rtc_ticker
 ```
 
