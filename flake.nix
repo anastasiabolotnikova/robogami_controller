@@ -6,6 +6,8 @@
     flake-parts.follows = "mc-rtc-nix/flake-parts";
     systems.follows = "mc-rtc-nix/systems";
     gepetto.follows = "mc-rtc-nix/gepetto";
+
+    ccache-trigger.url = "github:boolean-option/true";
   };
 
   outputs =
@@ -27,6 +29,7 @@
     inputs.mc-rtc-nix.lib.mkMcRtcController inputs "robogami-controller" (
       { lib, ... }:
       {
+        mc-rtc-nix.overlays.ccache = inputs.ccache-trigger.value;
         flakoboros = {
           overrideAttrs.robogami-controller = {
             src = lib.cleanSource ./.;
