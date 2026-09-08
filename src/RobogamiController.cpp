@@ -1,7 +1,7 @@
 #include "RobogamiController.h"
 
 RobogamiController::RobogamiController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
-: mc_control::fsm::Controller(rm, dt, config)
+: mc_control::fsm::TVMController(rm, dt, config)
 {
 
   mc_rtc::log::success("RobogamiController init done ");
@@ -9,12 +9,12 @@ RobogamiController::RobogamiController(mc_rbdyn::RobotModulePtr rm, double dt, c
 
 bool RobogamiController::run()
 {
-  return mc_control::fsm::Controller::run();
+  return mc_control::fsm::TVMController::run();
 }
 
 void RobogamiController::reset(const mc_control::ControllerResetData & reset_data)
 {
-  mc_control::fsm::Controller::reset(reset_data);
+  mc_control::fsm::TVMController::reset(reset_data);
 
   // Low joint weights in posture task for passive DoFs
   //std::map<std::string, double> jointWeights = {{"x_l1rotx", 0.001},
