@@ -25,8 +25,8 @@ robots:
 # General constraints, always on
 constraints:
 - type: contact
-#- type: kinematics
-#  damper: [0.1, 0.01, 0.5]
+- type: kinematics
+  damper: [0.1, 0.01, 0.5]
 - type: compoundJoint
 
 # Distance constraint
@@ -39,12 +39,12 @@ contacts:
 - r2: ground
   r1Surface: Base
   r2Surface: AllGround
-#- r2: robogami
-#  r1Surface: Leg2
-#  r2Surface: TopLeg2
-#- r2: robogami
-#  r1Surface: Leg3
-#  r2Surface: TopLeg3
+- r2: robogami
+  r1Surface: Leg2
+  r2Surface: TopLeg2
+- r2: robogami
+  r1Surface: Leg3
+  r2Surface: TopLeg3
 
 # Some options for a specific robot
 robogami:
