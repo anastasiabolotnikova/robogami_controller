@@ -17,6 +17,10 @@ StatesFiles:
 # If true, state factory will be more verbose
 VerboseStateFactory: false
 
+# Name of the main robot
+MainRobot:
+  name: robogami_1
+
 # Additional robots to load
 robots:
   ground:
@@ -30,24 +34,23 @@ constraints:
 - type: compoundJoint
 
 # Distance constraint
-distances:
-- type: distance
-  useMinimal: true
+distanceConstraints:
+- useEssential: true
 
 # Initial set of contacts
 contacts:
 - r2: ground
   r1Surface: Base
   r2Surface: AllGround
-- r2: robogami
+- r2: robogami_1
   r1Surface: Leg2
   r2Surface: TopLeg2
-- r2: robogami
+- r2: robogami_1
   r1Surface: Leg3
   r2Surface: TopLeg3
 
 # Some options for a specific robot
-robogami:
+robogami_1:
   posture:
     stiffness: 1
     weight: 10
@@ -57,7 +60,7 @@ states:
 
   DefaultPosture:
     base: Posture
-    robot: robogami
+    robot: robogami_1
     postureTask:
       target:
         l1: [0.08726646] # 5 deg
@@ -66,7 +69,7 @@ states:
 
   StretchOut:
     base: Posture
-    robot: robogami
+    robot: robogami_1
     postureTask:
       target:
         l1: [1.4]

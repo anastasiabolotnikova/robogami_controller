@@ -19,8 +19,12 @@ sudo make install
 ## Configure
 Modify the mc_rtc configuration file `$INSTALL_PREFIX/etc/mc_rtc.yaml` so that is uses the Robogami robot and newly installed RobogamiController:
 ```
-MainRobot: robogami
-Enabled: RobogamiController
+# What robot is being controlled
+MainRobot:
+  module: robogami
+  name: robogami_1
+# Enabled controllers
+Enabled: [RobogamiController]
 ```
 
 ## Run

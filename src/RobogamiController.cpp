@@ -30,7 +30,7 @@ void RobogamiController::reset(const mc_control::ControllerResetData & reset_dat
                                                 {"l2TopMove", 0.001},
                                                 {"l3TopMove", 0.001}};
                                               
-  getPostureTask("robogami")->jointWeights(jointWeights);
+  getPostureTask("robogami_1")->jointWeights(jointWeights);
 
 }
 
