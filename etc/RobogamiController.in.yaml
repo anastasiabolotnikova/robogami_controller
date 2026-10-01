@@ -63,18 +63,18 @@ states:
     robot: robogami_1
     postureTask:
       target:
-        l1: [0.08726646] # 5 deg
-        l2: [0.08726646]
-        l3: [0.08726646]
+        l1: [0.17] # 10 deg
+        l2: [0.17]
+        l3: [0.17]
 
   StretchOut:
     base: Posture
     robot: robogami_1
     postureTask:
       target:
-        l1: [1.4]
-        l2: [1.4]
-        l3: [1.4]
+        l1: [1.0] # 57 deg
+        l2: [1.0]
+        l3: [1.0]
 
 # Transitions map
 transitions:
